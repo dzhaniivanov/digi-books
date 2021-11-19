@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ArrowRightAltOutlined } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display:flex;
@@ -48,9 +49,11 @@ const Book = ({ book }) => {
                 <Genre>Genre: {book.genre}</Genre>
                 <Created>Created on : {book.created}</Created>
                 <Updated>Updated on: {book.updated}</Updated>
+                <Link to={`/book/${book.id}`}>
                 <Button>
                     <ArrowRightAltOutlined />
                 </Button>
+                </Link>
             </Info>
         </Container>
     )

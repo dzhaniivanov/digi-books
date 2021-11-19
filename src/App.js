@@ -6,6 +6,7 @@ import {
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import SingleBookPage from "./components/SingleBookPage";
 
 
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" exact element={<Home />} />
         <Route path="/login" exact element={<Login />} />
         <Route path="/register" exact element={<Register />} />
+        <Route path="/book/:id" exact element={<SingleBookPage />} />
       </Routes>
     </Router>
   );
