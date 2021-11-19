@@ -1,11 +1,25 @@
 import styled from "styled-components";
 import { ArrowRightAltOutlined } from "@material-ui/icons";
 
-const Container = styled.div``;
+const Container = styled.div`
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:5px;
+    min-width:280px;
+    height:350px;
+    border:0.5px solid lightgray;
+`;
 
-const Image = styled.img``;
+const Image = styled.img`
+    height:30%;
+`;
 
-const Info = styled.div``;
+const Info = styled.div`
+    display:flex;
+    flex-direction:column;
+
+`;
 
 const Title = styled.h3``;
 
@@ -18,7 +32,9 @@ const Created = styled.span``;
 
 const Updated = styled.span``;
 
-const Button = styled.button``;
+const Button = styled.button`
+    
+`;
 
 
 
@@ -29,9 +45,9 @@ const Book = ({ book }) => {
             <Info>
                 <Title>{book.title}</Title>
                 <Author>{book.author}</Author>
-                <Genre>{book.genre}</Genre>
-                <Created>{book.created}</Created>
-                <Updated>{book.updated}</Updated>
+                <Genre>Genre: {book.genre}</Genre>
+                <Created>Created on : {book.created}</Created>
+                <Updated>Updated on: {book.updated}</Updated>
                 <Button>
                     <ArrowRightAltOutlined />
                 </Button>
