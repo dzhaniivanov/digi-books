@@ -14,22 +14,57 @@ const WrapperLeft = styled.div`
 `;
 
 const Logo = styled.div`
+
 `;
 
-const Title = styled.h1``;
+const Title = styled.h1`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size:26px;
+    font-weight:600;
+`;
 
-const Subtitle = styled.h2``;
+const Subtitle = styled.h2`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size:20px;
+    font-weight:300;
+`;
 
-const Form = styled.form``;
+const Form = styled.form`
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+`;
 
-const Input = styled.input``;
+const Input = styled.input`
+    flex:1;
+    min-width:40%;
+    margin:20px 10px 10px 0px;
+    padding:10px;
+`;
 
-const Button = styled.button``;
+const Button = styled.button`
+    width:90%;
+    border:none;
+    padding:15px 20px;
+    background-color: #1076B5;
+    color:white;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin:10px;
+    cursor:pointer;
+`;
 
 const WrapperRight = styled.div`
+    display:flex;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+`;
 
 
 
