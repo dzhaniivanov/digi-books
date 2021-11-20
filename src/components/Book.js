@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { ArrowRightAltOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import {format} from "timeago.js";
+
 
 const Container = styled.div`
     display:flex;
@@ -50,8 +52,9 @@ const Button = styled.button`
 
 
 const Book = ({ book }) => {
+    let genreName=Object.values(book.genre)[1];
     return (
-        <Container>
+        <Container> 
             <Info>
                 <Left>
                     <Image src={book.image} />
@@ -59,9 +62,9 @@ const Book = ({ book }) => {
                 <Center>
                     <Title>{book.name}</Title>
                     <Author>{book.author}</Author>
-                  {/*   <Genre>Genre: {book.genre}</Genre> */}
-                    <Created>Created on : {book.createOn}</Created>
-                    <Updated>Updated on: {book.lastUpdateOn}</Updated>
+                    <Genre>Genre: {genreName}</Genre>
+                    <Created>Created on : {format(book.createOn)}</Created>
+                    <Updated>Updated on: {format(book.lastUpdateOn)}</Updated>
                 </Center>
                 <Right>
                     <Link to={`/book/${book._id}`}>

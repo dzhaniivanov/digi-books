@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import styled from "styled-components";
 import { userRequest } from "../requestMethods";
 import Navbar from "./Navbar";
+import {format} from "timeago.js";
 
 const Container = styled.div`
     display:flex;
@@ -51,6 +52,8 @@ const SingleBookPage = () => {
         }
         getBook();
     }, [id])
+    
+
 
 
     return (
@@ -62,10 +65,10 @@ const SingleBookPage = () => {
                 </Left>
                 <Right>
                     <Title>{book.name}</Title>
-                    <Genre><b>Genre:</b>TO DO ! ! !</Genre>
+                    <Genre><b>Genre:</b>dssd</Genre>
                     <Author>{book.author}</Author>
-                    <Created>Created on: {book.createOn}</Created>
-                    <Updated>Updated on: {book.lastUpdateOn}</Updated>
+                    <Created>Created on: {format(book.createOn)}</Created>
+                    <Updated>Updated on: {format(book.lastUpdateOn)}</Updated>
                     <Desc><b>Short description:</b>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi corporis maiores cumque soluta distinctio quaerat iusto, delectus, voluptas quia quibusdam aliquam earum? Ad consectetur quasi itaque non repudiandae voluptatem quibusdam.</Desc>
                 </Right>
