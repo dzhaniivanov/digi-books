@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Book from "./Book";
-import { books } from "../dummyData";
 import { SearchOutlined } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import { publicRequest, userRequest } from "../requestMethods";
@@ -18,12 +17,15 @@ const SearchContainer = styled.div`
     margin:5px;
 `;
 
+const Button = styled.button``;
+
+
 
 
 const BookList = () => {
     const [books, setBooks] = useState([]);
-    const [searchQuery, setSearchQuery] = useState("");
-    const [filtered, setFiltered] = useState("");
+    const [search, setSearch] = useState("");
+
 
     useEffect(() => {
         const getBooks = async () => {
@@ -38,24 +40,32 @@ const BookList = () => {
         getBooks();
     }, [])
 
-    const handleSearch = (newSearch) => {
-        setSearchQuery(newSearch);
-        books.map((book) => {
-            if (book.includes(searchQuery)) {
-                setFiltered(book);
-            }
-        })
-    }
+
+
+
+
 
 
     return (
         <>
-            <SearchContainer>
-                ALL BOOKS <input type="text" placeholder="search book" style={{ marginLeft: "5px" }} />
-                <SearchOutlined onChange={handleSearch} />
+            <SearchContainer >
+                ALL BOOKS
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="search book"
+                    style={{ marginLeft: "5px" }}
+                    onChange={(e) => { setSearch(e.target.value) }} />
+                <SearchOutlined />
             </SearchContainer>
             <Container>
-                {books.map((book) => (
+                {books.filter(book => {
+                    if (search === "") {
+                        return book;
+                    } else if (book.name.toLowerCase().includes(search.toLowerCase())) {
+                        return book;
+                    }
+                }).map((book) => (
                     <Book book={book} key={book._id} />
                 ))}
             </Container>
