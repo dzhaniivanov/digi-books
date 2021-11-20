@@ -54,17 +54,17 @@ const Book = ({ book }) => {
         <Container>
             <Info>
                 <Left>
-                    <Image src={book.img} />
+                    <Image src={book.image} />
                 </Left>
                 <Center>
-                    <Title>{book.title}</Title>
+                    <Title>{book.name}</Title>
                     <Author>{book.author}</Author>
-                    <Genre>Genre: {book.genre}</Genre>
-                    <Created>Created on : {book.created}</Created>
-                    <Updated>Updated on: {book.updated}</Updated>
+                  {/*   <Genre>Genre: {book.genre}</Genre> */}
+                    <Created>Created on : {book.createOn}</Created>
+                    <Updated>Updated on: {book.lastUpdateOn}</Updated>
                 </Center>
                 <Right>
-                    <Link to={`/book/${book.id}`}>
+                    <Link to={`/book/${book._id}`}>
                         <Button>
                             <ArrowRightAltOutlined />
                         </Button>

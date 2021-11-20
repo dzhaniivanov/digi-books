@@ -27,7 +27,7 @@ const BookList = () => {
         const getBooks = async () => {
             try {
                 const res = await userRequest.get("/api/book");
-                console.log(res);
+                setBooks(res.data);
             } catch (error) {
                 console.log(error)
             }
@@ -45,7 +45,7 @@ const BookList = () => {
             </SearchContainer>
             <Container>
                 {books.map((book) => (
-                    <Book book={book} key={book.id} />
+                    <Book book={book} key={book._id} />
                 ))}
             </Container>
         </>
