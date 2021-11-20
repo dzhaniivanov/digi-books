@@ -44,8 +44,8 @@ const SingleBookPage = () => {
                     <Title>Will</Title>
                     <Genre><b>Genre:</b>Personal Growth</Genre>
                     <Author>Will Smith</Author>
-                    <Created>01.01.2021</Created>
-                    <Updated>02.01.2021</Updated>
+                    <Created>Created on: 01.01.2021</Created>
+                    <Updated>Updated on: 02.01.2021</Updated>
                     <Desc><b>Short description:</b>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi corporis maiores cumque soluta distinctio quaerat iusto, delectus, voluptas quia quibusdam aliquam earum? Ad consectetur quasi itaque non repudiandae voluptatem quibusdam.</Desc>
                 </Right>

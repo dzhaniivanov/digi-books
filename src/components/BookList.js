@@ -22,7 +22,7 @@ const BookList = () => {
     return (
         <>
         <SearchContainer>
-        ALL BOOKS <input type="text" placeholder="search book" />
+        ALL BOOKS <input type="text" placeholder="search book" style={{marginLeft:"5px"}} />
         <SearchOutlined/>
     </SearchContainer>
         <Container>

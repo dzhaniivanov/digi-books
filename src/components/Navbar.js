@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { AccountCircleOutlined } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     height: 60px;
@@ -21,7 +22,7 @@ const Logo = styled.div`
     display:flex;
 `;
 
-const LogoImage=styled.img`
+const LogoImage = styled.img`
     width:150px;
 `;
 
@@ -57,8 +58,12 @@ const Navbar = () => {
                     </Logo>
                 </Left>
                 <Center>
-                    <MenuItem>Library</MenuItem>
-                    <MenuItem>Settings</MenuItem>
+                    <Link to="/" style={{textDecoration:"none",color:"inherit"}}>
+                        <MenuItem>Library</MenuItem>
+                    </Link>
+                    <Link to="/settings" style={{textDecoration:"none",color:"inherit"}}>
+                        <MenuItem>Settings</MenuItem>
+                    </Link>
                 </Center>
                 <Right>
                     <AccountCircleOutlined />
