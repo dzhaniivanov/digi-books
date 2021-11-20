@@ -1,4 +1,7 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { login } from "../redux/apiCalls";
 
 const Container = styled.div`
     display:flex;
@@ -61,6 +64,17 @@ const Image = styled.img`
 `;
 
 const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        login(dispatch, { username, password })
+    }
+
+
+
     return (
         <Container>
             <WrapperLeft>
@@ -69,9 +83,9 @@ const Login = () => {
                 </Logo>
                 <Title>Welcome back!</Title>
                 <Form>
-                    <Input placeholder="enter a email" type="email" />
-                    <Input placeholder="password" type="password" />
-                    <Button>LOG IN</Button>
+                    <Input placeholder="enter a email" type="email" onChange={(e) => setUsername(e.target.value)} />
+                    <Input placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)} />
+                    <Button onClick={handleLogin}>LOG IN</Button>
                     <span>You  dont't have an account?SIGN UP HERE</span>
                 </Form>
             </WrapperLeft>
