@@ -8,10 +8,12 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import SingleBookPage from "./components/SingleBookPage";
 import Settings from "./components/Settings";
+import { useSelector } from "react-redux";
 
 
 
 function App() {
+  //const user=useSelector(state=>state.user.currentUser);
   return (
     <Router>
       <Routes>

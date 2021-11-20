@@ -4,23 +4,33 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display:flex;
-    justify-content: center;
-    align-items: center;
-    margin:5px;
-    min-width:280px;
-    height:350px;
-    border:0.5px solid lightgray;
-`;
-
-const Image = styled.img`
-    height:30%;
 `;
 
 const Info = styled.div`
     display:flex;
-    flex-direction:column;
 
 `;
+
+const Left = styled.div``;
+
+const Center = styled.div`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    
+`;
+
+const Right = styled.div`
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+`;
+
+const Image = styled.img`
+`;
+
+
 
 const Title = styled.h3``;
 
@@ -34,7 +44,7 @@ const Created = styled.span``;
 const Updated = styled.span``;
 
 const Button = styled.button`
-    
+    height:200px;
 `;
 
 
@@ -42,18 +52,24 @@ const Button = styled.button`
 const Book = ({ book }) => {
     return (
         <Container>
-            <Image src={book.img} />
             <Info>
-                <Title>{book.title}</Title>
-                <Author>{book.author}</Author>
-                <Genre>Genre: {book.genre}</Genre>
-                <Created>Created on : {book.created}</Created>
-                <Updated>Updated on: {book.updated}</Updated>
-                <Link to={`/book/${book.id}`}>
-                <Button>
-                    <ArrowRightAltOutlined />
-                </Button>
-                </Link>
+                <Left>
+                    <Image src={book.img} />
+                </Left>
+                <Center>
+                    <Title>{book.title}</Title>
+                    <Author>{book.author}</Author>
+                    <Genre>Genre: {book.genre}</Genre>
+                    <Created>Created on : {book.created}</Created>
+                    <Updated>Updated on: {book.updated}</Updated>
+                </Center>
+                <Right>
+                    <Link to={`/book/${book.id}`}>
+                        <Button>
+                            <ArrowRightAltOutlined />
+                        </Button>
+                    </Link>
+                </Right>
             </Info>
         </Container>
     )

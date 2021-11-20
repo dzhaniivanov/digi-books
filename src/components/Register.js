@@ -1,4 +1,7 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { register } from "../redux/apiCalls";
 
 const Container = styled.div`
     display:flex;
@@ -69,6 +72,19 @@ const Image = styled.img`
 
 
 const Register = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [rePassword, setRepassword] = useState("");
+
+    const dispatch = useDispatch();
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        register(dispatch, { email, password, rePassword })
+    };
+
+
+
     return (
         <Container>
             <WrapperLeft>
@@ -78,10 +94,10 @@ const Register = () => {
                 <Title>Welcome to the best book database!</Title>
                 <Subtitle>Create your profile</Subtitle>
                 <Form>
-                    <Input placeholder="enter a email" type="email" />
-                    <Input placeholder="password" type="password" />
-                    <Input placeholder="repeat password" type="password" />
-                    <Button>SIGN UP</Button>
+                    <Input placeholder="enter a email" type="email" onChange={(e) => setEmail(e.target.value)} />
+                    <Input placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)} />
+                    <Input placeholder="repeat password" type="password" onChange={(e) => setRepassword(e.target.value)} />
+                    <Button onClick={handleRegister}>SIGN UP</Button>
                     <span>You have a account?LOG IN HERE</span>
                 </Form>
             </WrapperLeft>
