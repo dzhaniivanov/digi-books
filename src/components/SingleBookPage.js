@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import styled from "styled-components";
+import { userRequest } from "../requestMethods";
 import Navbar from "./Navbar";
 
 const Container = styled.div`
@@ -21,7 +24,7 @@ const Right = styled.div`
 
 const Title = styled.h1``;
 
-const Genre=styled.span``;
+const Genre = styled.span``;
 
 const Author = styled.h3``;
 
@@ -33,19 +36,36 @@ const Desc = styled.span``;
 
 
 const SingleBookPage = () => {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
+    const [book, setBook] = useState({});
+
+    useEffect(() => {
+        const getBook = async () => {
+            try {
+                const res = await userRequest.get("/api/book/" + id)
+                setBook(res.data);
+            } catch (error) {
+                console.log(error)
+            };
+        }
+        getBook();
+    }, [id])
+
+
     return (
         <>
             <Navbar />
             <Container>
                 <Left>
-                    <Image src="/images/booksCover/Mask Group 17.png" />
+                    <Image src={book.image} />
                 </Left>
                 <Right>
-                    <Title>Will</Title>
-                    <Genre><b>Genre:</b>Personal Growth</Genre>
-                    <Author>Will Smith</Author>
-                    <Created>Created on: 01.01.2021</Created>
-                    <Updated>Updated on: 02.01.2021</Updated>
+                    <Title>{book.name}</Title>
+                    <Genre><b>Genre:</b>TO DO ! ! !</Genre>
+                    <Author>{book.author}</Author>
+                    <Created>Created on: {book.createOn}</Created>
+                    <Updated>Updated on: {book.lastUpdateOn}</Updated>
                     <Desc><b>Short description:</b>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi corporis maiores cumque soluta distinctio quaerat iusto, delectus, voluptas quia quibusdam aliquam earum? Ad consectetur quasi itaque non repudiandae voluptatem quibusdam.</Desc>
                 </Right>

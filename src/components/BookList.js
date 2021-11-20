@@ -22,6 +22,8 @@ const SearchContainer = styled.div`
 
 const BookList = () => {
     const [books, setBooks] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filtered, setFiltered] = useState("");
 
     useEffect(() => {
         const getBooks = async () => {
@@ -36,12 +38,21 @@ const BookList = () => {
         getBooks();
     }, [])
 
+    const handleSearch = (newSearch) => {
+        setSearchQuery(newSearch);
+        books.map((book) => {
+            if (book.includes(searchQuery)) {
+                setFiltered(book);
+            }
+        })
+    }
+
 
     return (
         <>
             <SearchContainer>
                 ALL BOOKS <input type="text" placeholder="search book" style={{ marginLeft: "5px" }} />
-                <SearchOutlined />
+                <SearchOutlined onChange={handleSearch} />
             </SearchContainer>
             <Container>
                 {books.map((book) => (
