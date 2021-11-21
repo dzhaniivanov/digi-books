@@ -40,3 +40,5 @@ export const logout = async (dispatch, user) => {
         dispatch(logoutFailure());
     }
 };
+
+

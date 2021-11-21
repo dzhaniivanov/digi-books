@@ -34,7 +34,7 @@ const userSlice = createSlice({
         logoutStart: (state) => {
             state.isFetching = true;
         },
-        logoutSuccess: (state) => {
+        logoutSuccess: (state ) => {
             state.isFetching = false;
             state.currentUser.token = null;
         },

@@ -64,6 +64,9 @@ const Navbar = () => {
                     <Link to="/settings" style={{textDecoration:"none",color:"inherit"}}>
                         <MenuItem>Settings</MenuItem>
                     </Link>
+                    <Link to="/genres" style={{textDecoration:"none",color:"inherit"}}>
+                        <MenuItem>Genres</MenuItem>
+                    </Link>
                 </Center>
                 <Right>
                     <AccountCircleOutlined />
