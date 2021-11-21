@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { register } from "../redux/apiCalls";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
+import {Link} from "react-router-dom";
 
 
 const Container = styled.div`
@@ -109,14 +110,14 @@ const Register = () => {
                 <Title>Welcome to the best book database!</Title>
                 <Subtitle>Create your profile</Subtitle>
                 <Form>
-                    <Input placeholder="enter a email" type="email" onChange={(e) => setUsername(e.target.value)} />
+                    <Input placeholder="enter a username" type="text" onChange={(e) => setUsername(e.target.value)} />
                     <PassWrapper>
                         <Input placeholder="password" type={passShow ? "text" : "password"} onChange={(e) => setPassword(e.target.value)} />
                         <i onClick={passwordVisibility} style={{ position: "absolute", top: "38%", right: "10%" }}> {passShow ? <Visibility /> : <VisibilityOff />} </i>
                     </PassWrapper>
                     {/*  <Input placeholder="repeat password" type="password" onChange={(e) => setRepassword(e.target.value)} /> */}
                     <Button onClick={handleRegister}>SIGN UP</Button>
-                    <span>You have a account?LOG IN HERE</span>
+                    <span>You have a account?<Link to ="/login">LOG IN HERE</Link></span>
                 </Form>
             </WrapperLeft>
             <WrapperRight>

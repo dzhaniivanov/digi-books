@@ -34,6 +34,10 @@ const Title = styled.h3`
 const Created = styled.span`
     font-size:18px;
     font-weight:500;
+    display: flex;
+    flex-direction:column;
+    margin:10px;
+    padding:10px;
 `;
 
 
@@ -52,8 +56,8 @@ const Genre = ({ genre }) => {
                 <Link to={`/genre/${genre._id}`} style={{textDecoration:"none",color:"inherit"}}>
                     <Title>{genre.name}</Title>
                 </Link>
-                <Created>Created on : {format(genre.createOn)}</Created>
-                <Updated>Updated on: {format(genre.lastUpdateOn)}</Updated>
+                <Created><b>Created on:</b>{format(genre.createOn)}</Created>
+                <Updated>Updated on:{format(genre.lastUpdateOn)}</Updated>
             </Info>
         </Container>
     )

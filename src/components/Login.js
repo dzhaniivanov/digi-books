@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display:flex;
@@ -93,13 +94,13 @@ const Login = () => {
                 </Logo>
                 <Title>Welcome back!</Title>
                 <Form>
-                    <Input placeholder="enter a email" type="email" onChange={(e) => setUsername(e.target.value)} />
+                    <Input placeholder="enter a username" type="text" onChange={(e) => setUsername(e.target.value)} />
                     <PassWrapper>
                         <Input placeholder="password" type={passShow ? "text" : "password"} onChange={(e) => setPassword(e.target.value)} />
                         <i onClick={passwordVisibility} style={{ position: "absolute", top: "38%", right: "10%" }}>  {passShow ? <Visibility /> : <VisibilityOff />} </i>
                     </PassWrapper>
                     <Button onClick={handleLogin}>LOG IN</Button>
-                    <span>You  dont't have an account?SIGN UP HERE</span>
+                    <span>You  dont't have an account?<Link to="/register">SIGN UP HERE</Link></span>
                 </Form>
             </WrapperLeft>
             <WrapperRight>
