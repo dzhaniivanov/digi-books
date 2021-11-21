@@ -72,15 +72,15 @@ const Image = styled.img`
 
 
 const Register = () => {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [rePassword, setRepassword] = useState("");
+    /*  const [rePassword, setRepassword] = useState(""); */
 
     const dispatch = useDispatch();
 
     const handleRegister = (e) => {
         e.preventDefault();
-        register(dispatch, { email, password, rePassword })
+        register(dispatch, { username, password })
     };
 
 
@@ -94,9 +94,9 @@ const Register = () => {
                 <Title>Welcome to the best book database!</Title>
                 <Subtitle>Create your profile</Subtitle>
                 <Form>
-                    <Input placeholder="enter a email" type="email" onChange={(e) => setEmail(e.target.value)} />
+                    <Input placeholder="enter a email" type="email" onChange={(e) => setUsername(e.target.value)} />
                     <Input placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)} />
-                    <Input placeholder="repeat password" type="password" onChange={(e) => setRepassword(e.target.value)} />
+                    {/*  <Input placeholder="repeat password" type="password" onChange={(e) => setRepassword(e.target.value)} /> */}
                     <Button onClick={handleRegister}>SIGN UP</Button>
                     <span>You have a account?LOG IN HERE</span>
                 </Form>

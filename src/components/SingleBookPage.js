@@ -53,6 +53,8 @@ const SingleBookPage = () => {
         getBook();
     }, [id])
     
+    
+    
 
 
 
@@ -65,7 +67,7 @@ const SingleBookPage = () => {
                 </Left>
                 <Right>
                     <Title>{book.name}</Title>
-                    <Genre><b>Genre:</b>dssd</Genre>
+                    <Genre><b>Genre:</b>{book.genre?.name}</Genre>
                     <Author>{book.author}</Author>
                     <Created>Created on: {format(book.createOn)}</Created>
                     <Updated>Updated on: {format(book.lastUpdateOn)}</Updated>
