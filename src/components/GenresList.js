@@ -28,15 +28,6 @@ const GenreList = () => {
     const [genres, setGenres] = useState([]);
     const [search, setSearch] = useState("");
 
-    /* export const getAllGenres = async () => {
-    try {
-        const res=await userRequest.get("/api/genre")
-    } catch (error) {
-        console.log(error)
-    }
-} */
-
-
     useEffect(() => {
         const getGenres = async () => {
             try {

@@ -14,26 +14,38 @@ const Left = styled.div`
 `;
 
 const Image = styled.img`
-    width:80%;
+    width:100%;
 `;
 
 const Right = styled.div`
     flex:2;
     display:flex;
     flex-direction:column;
+    padding:20px;
+    margin:20px;
 `;
 
-const Title = styled.h1``;
+const Title = styled.h1`
+    background-color: green;
+    color:white;
+`;
 
 const Genre = styled.span``;
 
-const Author = styled.h3``;
+const Author = styled.h3`
+    color:blue;
+`;
 
 const Created = styled.span``;
 
 const Updated = styled.span``;
 
-const Desc = styled.span``;
+const Desc = styled.span`
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction:column;
+`;
 
 
 const SingleBookPage = () => {
