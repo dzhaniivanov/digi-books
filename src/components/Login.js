@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { login } from "../redux/apiCalls";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
 
 const Container = styled.div`
     display:flex;
@@ -63,16 +64,26 @@ const WrapperRight = styled.div`
 const Image = styled.img`
 `;
 
+const PassWrapper = styled.div`
+    display:flex;
+    position:relative;
+`;
+
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [passShow, setPassShow] = useState(false);
     const dispatch = useDispatch();
 
     const handleLogin = (e) => {
         e.preventDefault();
         login(dispatch, { username, password })
     }
-   
+
+    const passwordVisibility = () => {
+        setPassShow(passShow ? false : true)
+    }
+
 
     return (
         <Container>
@@ -83,7 +94,10 @@ const Login = () => {
                 <Title>Welcome back!</Title>
                 <Form>
                     <Input placeholder="enter a email" type="email" onChange={(e) => setUsername(e.target.value)} />
-                    <Input placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)} />
+                    <PassWrapper>
+                        <Input placeholder="password" type={passShow ? "text" : "password"} onChange={(e) => setPassword(e.target.value)} />
+                        <i onClick={passwordVisibility} style={{ position: "absolute", top: "38%", right: "10%" }}>  {passShow ? <Visibility /> : <VisibilityOff />} </i>
+                    </PassWrapper>
                     <Button onClick={handleLogin}>LOG IN</Button>
                     <span>You  dont't have an account?SIGN UP HERE</span>
                 </Form>

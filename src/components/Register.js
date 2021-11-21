@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { register } from "../redux/apiCalls";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
+
 
 const Container = styled.div`
     display:flex;
@@ -69,11 +71,19 @@ const WrapperRight = styled.div`
 const Image = styled.img`
 `;
 
+const PassWrapper = styled.div`
+    display:flex;
+    position:relative;
+`;
+
+
 
 
 const Register = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [passShow, setPassShow] = useState(false);
+
     /*  const [rePassword, setRepassword] = useState(""); */
 
     const dispatch = useDispatch();
@@ -82,6 +92,11 @@ const Register = () => {
         e.preventDefault();
         register(dispatch, { username, password })
     };
+
+
+    const passwordVisibility = () => {
+        setPassShow(passShow ? false : true)
+    }
 
 
 
@@ -95,7 +110,10 @@ const Register = () => {
                 <Subtitle>Create your profile</Subtitle>
                 <Form>
                     <Input placeholder="enter a email" type="email" onChange={(e) => setUsername(e.target.value)} />
-                    <Input placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)} />
+                    <PassWrapper>
+                        <Input placeholder="password" type={passShow ? "text" : "password"} onChange={(e) => setPassword(e.target.value)} />
+                        <i onClick={passwordVisibility} style={{ position: "absolute", top: "38%", right: "10%" }}> {passShow ? <Visibility /> : <VisibilityOff />} </i>
+                    </PassWrapper>
                     {/*  <Input placeholder="repeat password" type="password" onChange={(e) => setRepassword(e.target.value)} /> */}
                     <Button onClick={handleRegister}>SIGN UP</Button>
                     <span>You have a account?LOG IN HERE</span>
