@@ -17,7 +17,6 @@ const SearchContainer = styled.div`
     margin:5px;
 `;
 
-const Button = styled.button``;
 
 
 

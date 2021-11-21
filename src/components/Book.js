@@ -10,6 +10,9 @@ const Container = styled.div`
 
 const Info = styled.div`
     display:flex;
+    max-width:400px;
+    margin:10px;
+    box-shadow:-3px 6px 11px 5px #000000;
 
 `;
 
@@ -17,7 +20,6 @@ const Left = styled.div``;
 
 const Center = styled.div`
     display:flex;
-    align-items: center;
     justify-content: center;
     flex-direction:column;
     
@@ -30,23 +32,40 @@ const Right = styled.div`
 `;
 
 const Image = styled.img`
+    width:50%;
+    margin:10px;
+    
 `;
 
 
 
-const Title = styled.h3``;
+const Title = styled.h3`
+    font-size:20px;
+`;
 
-const Author = styled.h4``;
+const Author = styled.h4`
+    font-size:14px;
+`;
 
-const Genre = styled.span``;
+const Genre = styled.span`
+    font-size:18px;
+`;
 
-const Created = styled.span``;
+const Created = styled.span`
+    font-size:18px;
+
+`;
 
 
-const Updated = styled.span``;
+const Updated = styled.span`
+    font-size:18px;
+
+`;
 
 const Button = styled.button`
     height:200px;
+    background-color: blue;
+    color:white;
 `;
 
 
@@ -62,7 +81,7 @@ const Book = ({ book }) => {
                 <Center>
                     <Title>{book.name}</Title>
                     <Author>{book.author}</Author>
-                    <Genre>Genre: {genreName}</Genre>
+                    <Genre>Genre:<b>{genreName}</b></Genre>
                     <Created>Created on : {format(book.createOn)}</Created>
                     <Updated>Updated on: {format(book.lastUpdateOn)}</Updated>
                 </Center>
