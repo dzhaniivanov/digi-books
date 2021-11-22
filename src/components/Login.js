@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import {mobile} from "../responsive";
+
 
 const Container = styled.div`
     display:flex;
@@ -19,7 +21,6 @@ const WrapperLeft = styled.div`
 `;
 
 const Logo = styled.div`
-    
 
 `;
 
@@ -36,6 +37,7 @@ const Form = styled.form`
     display:flex;
     flex-direction:column;
     flex-wrap:wrap;
+    ${mobile({padding:"10px"})}
 `;
 
 const Input = styled.input`
@@ -60,6 +62,7 @@ const Button = styled.button`
 
 const WrapperRight = styled.div`
     display:flex;
+    ${mobile({display:"none"})}
 `;
 
 const Image = styled.img`

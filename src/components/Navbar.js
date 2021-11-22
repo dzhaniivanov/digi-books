@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { AccountCircleOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import {mobile} from "../responsive";
 
 const Container = styled.div`
     height: 60px;
@@ -16,10 +17,13 @@ const Wrapper = styled.div`
 
 const Left = styled.div`
     flex:1;
+
 `;
 
 const Logo = styled.div`
     display:flex;
+    ${mobile({display:"none"})}
+
 `;
 
 const LogoImage = styled.img`
@@ -58,13 +62,13 @@ const Navbar = () => {
                     </Logo>
                 </Left>
                 <Center>
-                    <Link to="/" style={{textDecoration:"none",color:"inherit"}}>
+                    <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
                         <MenuItem>Library</MenuItem>
                     </Link>
-                    <Link to="/settings" style={{textDecoration:"none",color:"inherit"}}>
+                    <Link to="/settings" style={{ textDecoration: "none", color: "inherit" }}>
                         <MenuItem>Settings</MenuItem>
                     </Link>
-                    <Link to="/genres" style={{textDecoration:"none",color:"inherit"}}>
+                    <Link to="/genres" style={{ textDecoration: "none", color: "inherit" }}>
                         <MenuItem>Genres</MenuItem>
                     </Link>
                 </Center>

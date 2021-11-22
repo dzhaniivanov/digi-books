@@ -2,10 +2,13 @@ import styled from "styled-components";
 import { ArrowRightAltOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import {format} from "timeago.js";
+import {mobile} from "../responsive";
+
 
 
 const Container = styled.div`
     display:flex;
+    ${mobile({marginBottom:"5px"})}
 `;
 
 const Info = styled.div`

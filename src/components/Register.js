@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { register } from "../redux/apiCalls";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import {Link} from "react-router-dom";
+import {mobile} from "../responsive";
+
 
 
 const Container = styled.div`
@@ -67,6 +69,8 @@ const Button = styled.button`
 
 const WrapperRight = styled.div`
     display:flex;
+    ${mobile({display:"none"})}
+
 `;
 
 const Image = styled.img`
